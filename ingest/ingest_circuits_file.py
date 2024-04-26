@@ -19,11 +19,7 @@ display(dbutils.fs.ls("/mnt/formulaone/bronze/circuits.csv/"))
 
 # COMMAND ----------
 
-df.printSchema()
-
-# COMMAND ----------
-
-df.describe().show()
+# df.describe().show()
 
 # COMMAND ----------
 
@@ -48,12 +44,12 @@ df.display()
 # COMMAND ----------
 
 # rename columns & adding date column
-df = df.withColumnRenamed("circuitId","circuit_id").withColumnRenamed("circuitRef","circuit_ref").withColumn("ingest_dt",current_timestamp())
-df.display()
+circuits_df = df.withColumnRenamed("circuitId","circuit_id").withColumnRenamed("circuitRef","circuit_ref").withColumn("ingest_dt",current_timestamp())
+circuits_df.display()
 
 # COMMAND ----------
 
-df.write.mode("overwrite").parquet(f"/mnt/formulaone/silver/{source_nm}")
+circuits_df.write.mode("overwrite").parquet(f"/mnt/formulaone/silver/{source_nm}")
 
 # COMMAND ----------
 

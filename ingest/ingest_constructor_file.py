@@ -37,7 +37,7 @@ constructor_df.display()
 
 # COMMAND ----------
 
-constructor_df.write.mode("overwrite").parquet(f'dbfs:/mnt/formulaone/silver/{source_nm}.json')
+constructor_df.write.mode("overwrite").parquet(f'dbfs:/mnt/formulaone/silver/{source_nm}')
 
 # COMMAND ----------
 

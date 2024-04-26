@@ -42,3 +42,7 @@ driver_df = df.withColumnRenamed('driverId','driver_id')\
             .withColumn('name',concat(col('name.forename'),lit(' '),col('name.surname')))
 
 driver_df.display()
+
+# COMMAND ----------
+
+driver_df.write.mode("overwrite").parquet(f"/mnt/formulaone/silver/{source_nm}")
