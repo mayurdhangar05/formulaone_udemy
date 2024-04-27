@@ -5,7 +5,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ####Step-1 Read The JSON File using spark datafram reader 
+# MAGIC ####Step-1 Read The JSON File using spark dataframe reader 
 
 # COMMAND ----------
 
@@ -47,7 +47,7 @@ circuit_final_df = add_ingestion_date(constructors_renamed_df)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ###Write the file in parquect 
+# MAGIC ###Write the file in parquet 
 
 # COMMAND ----------
 

@@ -10,10 +10,10 @@ race_year = dbutils.widgets.get("Race_year")
 
 # COMMAND ----------
 
-df_result = spark.read.parquet("/mnt/formulaoneraceadlsgen2/silver/Results")
-df_pitstops = spark.read.parquet("/mnt/formulaoneraceadlsgen2/silver/pit_stops")
-df_drivers = spark.read.parquet("/mnt/formulaoneraceadlsgen2/silver/Drivers")
-df_constructors = spark.read.parquet("/mnt/formulaoneraceadlsgen2/silver/Constructors")
+df_result = spark.read.parquet("/mnt/bwtformula1project/silver/Results")
+df_pitstops = spark.read.parquet("/mnt/bwtformula1project/silver/pit_stops")
+df_drivers = spark.read.parquet("/mnt/bwtformula1project/silver/Drivers")
+df_constructors = spark.read.parquet("/mnt/bwtformula1project/silver/constructors")
 
 # COMMAND ----------
 
@@ -41,31 +41,31 @@ df_result1 = df_result1.select(col("driver_nationality").alias("nationality"),co
 
 # COMMAND ----------
 
-# df_result1.write.parquet("/mnt/formulaoneraceadlsgen2/gold/Results",mode="overwrite")
+df_result1.write.mode("overwrite").parquet("/mnt/bwtformula1project/gold/Results")
 
 # COMMAND ----------
 
-df_for_perticular_year_and_race_location = df_result1.filter((col("race_name")== race_name)&(col("race_yr")==race_year)).orderBy(col("points").desc())
+df_for_particular_year_and_race_location = df_result1.filter((col("race_name")== race_name)&(col("race_yr")==race_year)).orderBy(col("points").desc())
 
 # COMMAND ----------
 
-df_for_perticular_year_and_race_location = df_for_perticular_year_and_race_location.dropDuplicates(["driver"])
+df_for_particular_year_and_race_location = df_for_particular_year_and_race_location.dropDuplicates(["driver"])
 
 # COMMAND ----------
 
-df_for_perticular_year_and_race_location = df_for_perticular_year_and_race_location.withColumn("result_position",col("result_position").cast("integer"))
+df_for_particular_year_and_race_location = df_for_particular_year_and_race_location.withColumn("result_position",col("result_position").cast("integer"))
 
 # COMMAND ----------
 
-df_for_perticular_year_and_race_location = df_for_perticular_year_and_race_location.orderBy("result_position").select("nationality","driver","number","Team","grid","stops","fastest_lap_detail","race_time","points")
+df_for_particular_year_and_race_location = df_for_particular_year_and_race_location.orderBy("result_position").select("nationality","driver","number","Team","grid","stops","fastest_lap_detail","race_time","points")
 
 # COMMAND ----------
 
-df_for_perticular_year_and_race_location.display()
+df_for_particular_year_and_race_location.display()
 
 # COMMAND ----------
 
-result = df_for_perticular_year_and_race_location.collect()
+result = df_for_particular_year_and_race_location.collect()
 result_list = []
 for row in result:
     dict_row = row.asDict()
@@ -78,4 +78,4 @@ dbutils.notebook.exit(result_list)
 
 # COMMAND ----------
 
-# df_for_perticular_year_and_race_location.write.parquet(f"/mnt/formulaoneraceadlsgen2/gold/Results/{race_name}_{race_year}_Results",mode="overwrite")
+df_for_particular_year_and_race_location.write.parquet(f"/mnt/bwtformula1project/gold/Results/{race_name}_{race_year}_Results",mode="overwrite")

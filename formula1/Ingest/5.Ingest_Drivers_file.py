@@ -10,7 +10,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ####Step-1 Read The JSON File using spark datafram reader 
+# MAGIC ####Step-1 Read The JSON File using spark dataframe reader 
 
 # COMMAND ----------
 
@@ -41,8 +41,8 @@ drivers_renamed_df = drivers_df.withColumn("name",concat(col("givenName"),lit(" 
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ###Step-3 Drop the unwanted columna
-# MAGIC 1. name.forename, name.surname , url 
+# MAGIC ###Step-3 Drop the unwanted column
+# MAGIC 1. name.forename, name.surname , url
 
 # COMMAND ----------
 
@@ -57,7 +57,7 @@ drivers_final_df.display()
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ###Step-4 Write the file in parquect 
+# MAGIC ###Step-4 Write the file in parquet 
 
 # COMMAND ----------
 

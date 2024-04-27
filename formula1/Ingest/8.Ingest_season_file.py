@@ -10,7 +10,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ####Step-1 Read The JSON File using spark datafram reader 
+# MAGIC ####Step-1 Read The JSON File using spark dataframe reader 
 
 # COMMAND ----------
 
@@ -20,12 +20,8 @@ season_df.display()
 
 # COMMAND ----------
 
-season_df.display()
-
-# COMMAND ----------
-
 # MAGIC %md
-# MAGIC ###Step-4 Write the file in parquect 
+# MAGIC ###Step-4 Write the file in parquet 
 
 # COMMAND ----------
 

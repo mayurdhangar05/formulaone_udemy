@@ -9,7 +9,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ####Step-1 Read The JSON File using spark datafram reader 
+# MAGIC ####Step-1 Read The JSON File using spark dataframe reader 
 
 # COMMAND ----------
 
@@ -77,12 +77,16 @@ pit_stopss_renamed_df1 = pit_stopss_renamed_df1.select("race_date","Season_id","
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ###Step-4 Write the file in parquect 
+# MAGIC ###Step-4 Write the file in parquet 
 
 # COMMAND ----------
 
 #write the file 
-# pit_stopss_renamed_df1.write.mode("overwrite").parquet(f"/mnt/bwtformula1project/silver/pit_stops")
+pit_stopss_renamed_df1.write.mode("overwrite").parquet(f"/mnt/bwtformula1project/silver/pit_stops")
+
+# COMMAND ----------
+
+pitstop_df = df.write.format("delta").save(f"/mnt/bwtformula1project/silver/pit_stops_delta_format")
 
 # COMMAND ----------
 

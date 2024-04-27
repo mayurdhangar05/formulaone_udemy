@@ -8,7 +8,7 @@ race_year = dbutils.widgets.get("Race_Year")
 
 # COMMAND ----------
 
-Final_result_df = spark.read.parquet("/mnt/formulaoneraceadlsgen2/gold/Results/")
+Final_result_df = spark.read.parquet("/mnt/bwtformula1project/gold/Results/")
 
 # COMMAND ----------
 

@@ -39,7 +39,7 @@ races_selected_column_df = races_df.select(col("date").alias("race_date"),col("r
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Step-2 Add ingestion date to data fream
+# MAGIC ### Step-2 Add ingestion date to dataframe
 
 # COMMAND ----------
 

@@ -9,7 +9,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ####step-1 Read The CSV File Using Spark Datafream Reader
+# MAGIC ####step-1 Read The CSV File Using Spark Dataframe Reader
 
 # COMMAND ----------
 
@@ -52,7 +52,7 @@ circuits_renamed_df = circuit_df.withColumnRenamed("circuitId", "circuit_id") \
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Step-4 Add ingestion date to data fream
+# MAGIC ### Step-4 Add ingestion date to dataframe
 
 # COMMAND ----------
 

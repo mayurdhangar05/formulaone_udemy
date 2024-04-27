@@ -3,7 +3,7 @@
 
 # COMMAND ----------
 
-Final_result_df = spark.read.parquet("/mnt/formulaoneraceadlsgen2/gold/Results/")
+Final_result_df = spark.read.parquet("/mnt/bwtformula1project/gold/Results/")
 
 # COMMAND ----------
 
@@ -22,7 +22,7 @@ race_results_df = Final_result_df.withColumn("result_position",col("result_posit
 # COMMAND ----------
 
 driver_standings_df = race_results_df \
-.groupBy("race_yr", "driver", "nationality") \
+.groupBy("race_yr", "driver", "nationality")\
 .agg(sum("points").alias("total_points"),
      count(when(col("result_position") == 1, True)).alias("wins"))
 

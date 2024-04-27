@@ -9,7 +9,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ####Step-1 Read The JSON File using spark datafram reader 
+# MAGIC ####Step-1 Read The JSON File using spark dataframe reader 
 
 # COMMAND ----------
 
@@ -58,7 +58,7 @@ qualifying_renamed_df = qualifying_df.withColumnRenamed("qualifyId", 'qualify_id
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ###Step-4 Write the file in parquect 
+# MAGIC ###Step-4 Write the file in parquet 
 
 # COMMAND ----------
 
